@@ -23,6 +23,8 @@ namespace Notes
         public MainWindow()
         {
             InitializeComponent();
+            //var signInWindow = new SignInWindow();
+            //signInWindow.ShowDialog();
         }
     }
 }

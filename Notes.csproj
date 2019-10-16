@@ -71,18 +71,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SignInWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\User.cs" />
     <Compile Include="Views\SignInControl.xaml.cs">
       <DependentUpon>SignInControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SignInWindow.xaml.cs">
-      <DependentUpon>SignInWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

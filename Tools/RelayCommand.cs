@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Notes
+namespace Notes.Tools
 {
     public class RelayCommand<T> : ICommand
     {
@@ -16,7 +12,7 @@ namespace Notes
 
         #region Constructors
         /// <summary>
-        /// Initializes a new instance/>.
+        /// Initializes a new instance.
         /// </summary>
         /// <param name="execute">Delegate to execute when Execute is called on the command.  This can be null to just hook up a CanExecute delegate.</param>
         /// <remarks><seealso cref="CanExecute"/> will always return true.</remarks>

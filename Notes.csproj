@@ -52,6 +52,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\MvvmLightLibs.5.4.1.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -87,7 +88,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AuthorizationDTO.cs" />
+    <Compile Include="Models\CustomerDTO.cs" />
+    <Compile Include="Models\NoteDTO.cs" />
+    <Compile Include="Models\ShortNoteDTO.cs" />
+    <Compile Include="Tools\Services\INotesService.cs" />
     <Compile Include="Tools\EncryptionHelper.cs" />
     <Compile Include="Tools\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

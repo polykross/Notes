@@ -58,6 +58,12 @@ namespace Notes.Models
         #endregion
 
         #region Constructor
+        public NoteDTO(string title, string text)
+        {
+            _title = title;
+            _text = text;
+        }
+
         public NoteDTO(Guid guid, string title, string text, DateTime creationDate, DateTime lastEditDate)
         {
             _guid = guid;

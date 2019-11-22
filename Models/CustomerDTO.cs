@@ -69,9 +69,8 @@ namespace Notes.Models
         #endregion
 
         #region Constructor
-        public CustomerDTO(Guid guid, string login, string password, string firstName, string lastName, string email)
+        public CustomerDTO(string login, string password, string firstName, string lastName, string email)
         {
-            _guid = guid;
             _login = login;
             _password = password;
             _firstName = firstName;

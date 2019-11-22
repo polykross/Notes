@@ -1,12 +1,13 @@
-﻿using Notes.Tools;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace Notes.Models
 {
-    [DataContract]
     internal class CustomerDTO
     {
         #region Fields
+        [DataMember(Name = "Guid")]
+        private Guid _guid;
         [DataMember(Name = "Login")]
         private string _login;
         [DataMember(Name = "Password")]
@@ -17,9 +18,17 @@ namespace Notes.Models
         private string _lastName;
         [DataMember(Name = "Email")]
         private string _email;
+        [DataMember(Name = "LastLoginDate")]
+        private DateTime _lastLoginDate;
         #endregion
 
         #region Properties
+        public Guid Guid
+        {
+            get => _guid;
+            set => _guid = value;
+        }
+
         public string Login
         {
             get => _login;
@@ -49,34 +58,37 @@ namespace Notes.Models
             get => _email;
             set => _email = value;
         }
+        /// <summary>
+        /// Last login date in UTC
+        /// </summary>
+        public DateTime LastLoginDate
+        {
+            get => _lastLoginDate;
+            set => _lastLoginDate = value;
+        }
         #endregion
 
         #region Constructor
-        /// <summary>
-        /// Initializes a new instance.
-        /// </summary>
-        /// <param name="firstName">User's first name.</param>
-        /// <param name="lastName">User's last name.</param>
-        /// <param name="email">User's email.</param>
-        /// <param name="login">User's login.</param>
-        /// <param name="password">Clear text password, which will be hashed using login as salt.</param>
-        public CustomerDTO(string firstName, string lastName, string email, string login, string password)
+        public CustomerDTO(Guid guid, string login, string password, string firstName, string lastName, string email)
         {
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Login = login;
-            SetPassword(password);
+            _guid = guid;
+            _login = login;
+            _password = password;
+            _firstName = firstName;
+            _lastName = lastName;
+            _email = email;
+        }
+
+        public CustomerDTO(Guid guid, string login, string password, string firstName, string lastName, string email, DateTime lastLoginDate)
+        {
+            _guid = guid;
+            _login = login;
+            _password = password;
+            _firstName = firstName;
+            _lastName = lastName;
+            _email = email;
+            _lastLoginDate = lastLoginDate;
         }
         #endregion
-
-        /// <summary>
-        /// Sets password after hashing it with salt (login).
-        /// </summary>
-        /// <param name="password">Clear text password.</param>
-        private void SetPassword(string password)
-        {
-            Password = EncryptionHelper.GenerateHash(password, Login);
-        }
     }
 }

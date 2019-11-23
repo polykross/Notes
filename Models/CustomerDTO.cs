@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Notes.Models
 {
+    [Serializable]
     [DataContract]
     internal class CustomerDTO
     {

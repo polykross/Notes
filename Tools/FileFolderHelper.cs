@@ -12,7 +12,7 @@ namespace Notes.Tools
             Path.Combine(AppDataPath, "Notes");
 
         internal static readonly string StorageFilePath =
-            Path.Combine(AppFolderPath, "Storage.cskma");
+            Path.Combine(AppFolderPath, "CurrentUser.ser");
 
         internal static bool CreateFolderAndCheckFileExistance(string filePath)
         {
@@ -24,6 +24,7 @@ namespace Notes.Tools
         {
             if (!file.Directory.Exists)
             {
+                Console.WriteLine("file directory does not exist");
                 file.Directory.Create();
             }
             return file.Exists;

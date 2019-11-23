@@ -6,6 +6,7 @@ using Notes.Tools.Managers;
 using Notes.Tools.Navigation;
 using Notes.ViewModels;
 using Notes.Views;
+using Notes.Tools.Storage;
 
 namespace Notes
 {
@@ -28,10 +29,16 @@ namespace Notes
 
         private void InitializeApplication()
         {
-            StationManager.Initialize(new StubNotesService());
+            StationManager.Initialize(new StubNotesService(), new SerializedCurrentUserStorage());
             NavigationManager.Instance.Initialize(new NavigationModel(this));
-            NavigationManager.Instance.Navigate(new SignInView());
-            //NavigationManager.Instance.Navigate(new NotesView());
+            if (StationManager.CurrentUser != null)
+            {
+                NavigationManager.Instance.Navigate(new NotesView());
+            }
+            else
+            {
+                NavigationManager.Instance.Navigate(new SignInView());
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)

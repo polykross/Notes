@@ -1,4 +1,7 @@
 ﻿using System.Windows.Controls;
+using Notes.Tools.Navigation;
+using Notes.Models;
+using Notes.ViewModels;
 
 namespace Notes.Views
 {

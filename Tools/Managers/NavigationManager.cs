@@ -31,9 +31,9 @@ namespace Notes.Tools.Managers
             _navigationModel = navigationModel;
         }
 
-        internal void Navigate(ViewType viewType)
+        internal void Navigate(INavigatable view)
         {
-            _navigationModel.Navigate(viewType);
+            _navigationModel.Navigate(view);
         }
 
     }

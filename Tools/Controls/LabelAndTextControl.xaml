@@ -11,7 +11,7 @@
             <RowDefinition Height="15"/>
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
-        <Label Name="Label" Grid.Row="0" Height="25" FontSize="14"  
+        <Label Name="Label" Grid.Row="0" Height="25" FontSize="12" Margin="-2,-15,0,0"
                Content="{Binding Caption, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:LabelAndTextControl}, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Name="TextBox" Grid.Row ="1" FontSize="14" Height="25" MaxLength="{Binding MaxLength, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:LabelAndTextControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:LabelAndTextControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>

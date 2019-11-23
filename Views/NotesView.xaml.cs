@@ -9,7 +9,7 @@ namespace Notes.Views
     /// </summary>
     public partial class NotesView : UserControl, INavigatable
     {
-        public NotesView()
+        internal NotesView()
         {
             InitializeComponent();
             DataContext = new NotesViewModel();

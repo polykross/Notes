@@ -5,6 +5,7 @@ using Notes.Tools.Services;
 using Notes.Tools.Managers;
 using Notes.Tools.Navigation;
 using Notes.ViewModels;
+using Notes.Views;
 
 namespace Notes
 {
@@ -28,9 +29,9 @@ namespace Notes
         private void InitializeApplication()
         {
             StationManager.Initialize(new StubNotesService());
-            NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
-            //NavigationManager.Instance.Navigate(ViewType.SignIn);
-            NavigationManager.Instance.Navigate(ViewType.Main);
+            NavigationManager.Instance.Initialize(new NavigationModel(this));
+            NavigationManager.Instance.Navigate(new SignInView());
+            //NavigationManager.Instance.Navigate(new NotesView());
         }
 
         protected override void OnClosing(CancelEventArgs e)

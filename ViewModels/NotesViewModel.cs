@@ -9,6 +9,7 @@ using Notes.Models;
 using Notes.Tools;
 using Notes.Tools.Managers;
 using Notes.Tools.Navigation;
+using Notes.Views;
 
 namespace Notes.ViewModels
 {
@@ -116,7 +117,6 @@ namespace Notes.ViewModels
                     MessageBox.Show($"Could not load notes.");
                     Notes = new ObservableCollection<ShortNoteDTO>();
                 }
-                return true;
             });
             LoaderManager.Instance.HideLoader();
         }
@@ -129,7 +129,7 @@ namespace Notes.ViewModels
         private void LogoutImplementation(object obj)
         {
             StationManager.Logout();
-            NavigationManager.Instance.Navigate(ViewType.SignIn);
+            NavigationManager.Instance.Navigate(new SignInView());
         }
 
         private bool CanAddNoteExecute(object obj)
@@ -140,6 +140,7 @@ namespace Notes.ViewModels
         private void AddNoteImplementation(object obj)
         {
             System.Console.WriteLine("Navigating to add note");
+            NavigationManager.Instance.Navigate(new NoteView());
         }
 
         private bool CanShowNoteExecute(object obj)
@@ -151,21 +152,19 @@ namespace Notes.ViewModels
         {
             System.Console.WriteLine($"Loading note with guid {obj}");
             LoaderManager.Instance.ShowLoader();
-            NoteDTO note;
-            var result = await Task.Run(() =>
+            NoteDTO note = await Task.Run(() =>
             {
-                note = StationManager.NotesService.GetNote((Guid) obj);
-                if (note == null)
-                {
-                    MessageBox.Show($"Could not load note.");
-                    return false;
-                }
-                return true;
+                return StationManager.NotesService.GetNote((Guid) obj);
             });
             LoaderManager.Instance.HideLoader();
-            if (result)
+            if (note != null)
             {
                 System.Console.WriteLine("Loaded note");
+                NavigationManager.Instance.Navigate(new NoteView(note));
+            }
+            else
+            {
+                MessageBox.Show($"Could not load note.");
             }
         }
 

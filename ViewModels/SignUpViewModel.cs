@@ -6,7 +6,7 @@ using System.Windows.Input;
 using Notes.Models;
 using Notes.Tools;
 using Notes.Tools.Managers;
-using Notes.Tools.Navigation;
+using Notes.Views;
 
 namespace Notes.ViewModels
 {
@@ -140,13 +140,13 @@ namespace Notes.ViewModels
             LoaderManager.Instance.HideLoader();
             if (result)
             {
-                NavigationManager.Instance.Navigate(ViewType.Main);
+                NavigationManager.Instance.Navigate(new NotesView());
             }
         }
 
         private void ToSignInImplementation(object obj)
         {
-            NavigationManager.Instance.Navigate(ViewType.SignIn);
+            NavigationManager.Instance.Navigate(new SignInView());
         }
     }
 }

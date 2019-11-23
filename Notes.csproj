@@ -82,9 +82,6 @@
     <Compile Include="Tools\Controls\LabelAndPasswordControl.xaml.cs">
       <DependentUpon>LabelAndPasswordControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Controls\LabelAndTextBoxControl.xaml.cs">
-      <DependentUpon>LabelAndTextBoxControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Tools\Controls\LabelAndTextControl.xaml.cs">
       <DependentUpon>LabelAndTextControl.xaml</DependentUpon>
     </Compile>
@@ -92,7 +89,7 @@
     <Compile Include="Tools\Managers\LoaderManager.cs" />
     <Compile Include="Tools\Managers\NavigationManager.cs" />
     <Compile Include="Tools\Managers\StationManager.cs" />
-    <Compile Include="Tools\Navigation\BaseNavigationModel.cs" />
+    <Compile Include="Tools\Navigation\NavigationModel.cs" />
     <Compile Include="Tools\Navigation\IContentOwner.cs" />
     <Compile Include="Tools\Navigation\INavigatable.cs" />
     <Compile Include="Tools\Navigation\INavigationModel.cs" />
@@ -101,6 +98,7 @@
     <Compile Include="Tools\Services\StubNotesService.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NotesViewModel.cs" />
+    <Compile Include="ViewModels\NoteViewModel.cs" />
     <Compile Include="ViewModels\SignInViewModel.cs" />
     <Compile Include="ViewModels\SignUpViewModel.cs" />
     <Compile Include="Views\NotesView.xaml.cs">
@@ -128,10 +126,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Tools\Controls\LabelAndPasswordControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Tools\Controls\LabelAndTextBoxControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

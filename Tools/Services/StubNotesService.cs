@@ -67,7 +67,7 @@ namespace Notes.Tools.Services
         public NoteDTO UpdateNote(NoteDTO note)
         {
             Thread.Sleep(1000);
-            System.Console.WriteLine($"Add note: title {note.Title}, text {note.Text}");
+            System.Console.WriteLine($"Update note: title {note.Title}, text {note.Text}");
             return note;
         }
 

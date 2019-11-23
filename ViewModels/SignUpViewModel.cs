@@ -28,7 +28,7 @@ namespace Notes.ViewModels
         #region Properties
         public string Login
         {
-            get { return _login; }
+            get => _login;
             set
             {
                 _login = value;
@@ -37,7 +37,7 @@ namespace Notes.ViewModels
         }
         public string Password
         {
-            get { return _password; }
+            get => _password;
             set
             {
                 _password = value;
@@ -46,7 +46,7 @@ namespace Notes.ViewModels
         }
         public string FirstName
         {
-            get { return _firstName; }
+            get => _firstName;
             set
             {
                 _firstName = value;
@@ -55,7 +55,7 @@ namespace Notes.ViewModels
         }
         public string LastName
         {
-            get { return _lastName; }
+            get => _lastName;
             set
             {
                 _lastName = value;
@@ -64,7 +64,7 @@ namespace Notes.ViewModels
         }
         public string Email
         {
-            get { return _email; }
+            get => _email;
             set
             {
                 _email = value;
@@ -94,11 +94,11 @@ namespace Notes.ViewModels
         #endregion
         private bool CanSignUpExecute(object obj)
         {
-            return !String.IsNullOrEmpty(_login) &&
-                   !String.IsNullOrEmpty(_password) &&
-                   !String.IsNullOrEmpty(_firstName) &&
-                   !String.IsNullOrEmpty(_lastName) &&
-                   !String.IsNullOrEmpty(_email);
+            return !string.IsNullOrEmpty(_login) &&
+                   !string.IsNullOrEmpty(_password) &&
+                   !string.IsNullOrEmpty(_firstName) &&
+                   !string.IsNullOrEmpty(_lastName) &&
+                   !string.IsNullOrEmpty(_email);
         }
 
         private async void SignUpImplementation(object obj)
@@ -126,7 +126,7 @@ namespace Notes.ViewModels
                 }
                 try
                 {
-                    CustomerDTO user = new CustomerDTO(_login, _password, _firstName, _lastName, _email);
+                    var user = new CustomerDTO(_login, _password, _firstName, _lastName, _email);
                     user = StationManager.NotesService.Register(user);
                     StationManager.CurrentUser = user;
                 }

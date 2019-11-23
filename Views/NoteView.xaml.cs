@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Controls;
-using Notes.Tools.Navigation;
-using Notes.ViewModels;
-using Notes.Models;
+﻿using System.Windows.Controls;
 
 namespace Notes.Views
 {

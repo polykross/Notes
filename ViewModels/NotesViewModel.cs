@@ -39,50 +39,25 @@ namespace Notes.ViewModels
         }
 
         #region Commands
-        public ICommand RefreshCommand
-        {
-            get
-            {
-                return _refreshCommand ?? (_refreshCommand =
-                           new RelayCommand<object>(RefreshImplementation, CanRefreshExecute));
-            }
-        }
+        public ICommand RefreshCommand =>
+            _refreshCommand ?? (_refreshCommand =
+                new RelayCommand<object>(RefreshImplementation, CanRefreshExecute));
 
-        public ICommand LogoutCommand
-        {
-            get
-            {
-                return _logoutCommand ?? (_logoutCommand =
-                           new RelayCommand<object>(LogoutImplementation, CanLogoutExecute));
-            }
-        }
+        public ICommand LogoutCommand =>
+            _logoutCommand ?? (_logoutCommand =
+                new RelayCommand<object>(LogoutImplementation, CanLogoutExecute));
 
-        public ICommand AddNoteCommand
-        {
-            get
-            {
-                return _addNoteCommand ?? (_addNoteCommand =
-                           new RelayCommand<object>(AddNoteImplementation, CanAddNoteExecute));
-            }
-        }
+        public ICommand AddNoteCommand =>
+            _addNoteCommand ?? (_addNoteCommand =
+                new RelayCommand<object>(AddNoteImplementation, CanAddNoteExecute));
 
-        public ICommand ShowNoteCommand
-        {
-            get
-            {
-                return _showNoteCommand ?? (_showNoteCommand =
-                           new RelayCommand<object>(ShowNoteImplementation, CanShowNoteExecute));
-            }
-        }
+        public ICommand ShowNoteCommand =>
+            _showNoteCommand ?? (_showNoteCommand =
+                new RelayCommand<object>(ShowNoteImplementation, CanShowNoteExecute));
 
-        public ICommand DeleteNoteCommand
-        {
-            get
-            {
-                return _deleteNoteCommand ?? (_deleteNoteCommand =
-                           new RelayCommand<object>(DeleteNoteImplementation, CanDeleteNoteExecute));
-            }
-        }
+        public ICommand DeleteNoteCommand =>
+            _deleteNoteCommand ?? (_deleteNoteCommand =
+                new RelayCommand<object>(DeleteNoteImplementation, CanDeleteNoteExecute));
 
         #endregion
         #endregion
@@ -177,14 +152,11 @@ namespace Notes.ViewModels
         {
             System.Console.WriteLine($"Deleting note with guid {obj}");
             LoaderManager.Instance.ShowLoader();
-            var result = await Task.Run(() =>
-            {
-                return StationManager.NotesService.DeleteNote((Guid)obj);
-            });
+            var result = await Task.Run(() => StationManager.NotesService.DeleteNote((Guid)obj));
             LoaderManager.Instance.HideLoader();
             if (result)
             {
-                Notes.Remove(Notes.Where(note => note.Guid == (Guid)obj).First());
+                Notes.Remove(Notes.First(note => note.Guid == (Guid)obj));
                 System.Console.WriteLine("Deleted note");
             }
         }

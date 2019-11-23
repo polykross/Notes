@@ -12,10 +12,7 @@ namespace Notes.Tools.Managers
 
         internal static CustomerDTO CurrentUser { get; set; }
 
-        internal static INotesService NotesService
-        {
-            get => _notesService;
-        }
+        internal static INotesService NotesService => _notesService;
 
         internal static void Initialize(INotesService notesService)
         {

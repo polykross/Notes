@@ -24,7 +24,7 @@ namespace Notes.ViewModels
         #region Properties
         public string Login
         {
-            get { return _login; }
+            get => _login;
             set
             {
                 _login = value;
@@ -33,7 +33,7 @@ namespace Notes.ViewModels
         }
         public string Password
         {
-            get { return _password; }
+            get => _password;
             set
             {
                 _password = value;

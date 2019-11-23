@@ -3,6 +3,7 @@ using System.Runtime.Serialization;
 
 namespace Notes.Models
 {
+    [DataContract]
     internal class CustomerDTO
     {
         #region Fields

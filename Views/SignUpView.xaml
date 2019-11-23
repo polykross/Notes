@@ -21,15 +21,15 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <controlsSignUp:LabelAndTextControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                      Caption="Login" Margin="10" Grid.RowSpan="2"></controlsSignUp:LabelAndTextControl>
+                                      Caption="Login" Margin="10" Grid.RowSpan="2" MaxLength="26"></controlsSignUp:LabelAndTextControl>
         <controlsSignUp:LabelAndPasswordControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                          Caption="Password" Margin="10" Grid.RowSpan="2"></controlsSignUp:LabelAndPasswordControl>
+                                          Caption="Password" Margin="10" Grid.RowSpan="2" MaxLength="26"></controlsSignUp:LabelAndPasswordControl>
         <controlsSignUp:LabelAndTextControl Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                      Caption="First Name" Margin="10" Grid.RowSpan="2"></controlsSignUp:LabelAndTextControl>
+                                      Caption="First Name" Margin="10" Grid.RowSpan="2" MaxLength="50"></controlsSignUp:LabelAndTextControl>
         <controlsSignUp:LabelAndTextControl Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                      Caption="Last Name" Margin="10" Grid.RowSpan="2"></controlsSignUp:LabelAndTextControl>
+                                      Caption="Last Name" Margin="10" Grid.RowSpan="2" MaxLength="50"></controlsSignUp:LabelAndTextControl>
         <controlsSignUp:LabelAndTextControl Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                      Caption="Email" Margin="10" Grid.RowSpan="2"></controlsSignUp:LabelAndTextControl>
+                                      Caption="Email" Margin="10" Grid.RowSpan="2" MaxLength="330"></controlsSignUp:LabelAndTextControl>
         <Button Grid.Row="5" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" Content="Sign Up" Command="{Binding SignUpCommand}"/>
         <Button Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" Content="Back to Sign In" Command="{Binding ToSignInCommand}"/>
     </Grid>

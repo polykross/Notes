@@ -18,9 +18,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <controlsSignIn:LabelAndTextControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                      Caption="Login" Margin="10" Grid.RowSpan="2"></controlsSignIn:LabelAndTextControl>
+                                      Caption="Login" Margin="10" Grid.RowSpan="2" MaxLength="26"></controlsSignIn:LabelAndTextControl>
         <controlsSignIn:LabelAndPasswordControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                          Caption="Password" Margin="10" Grid.RowSpan="2"></controlsSignIn:LabelAndPasswordControl>
+                                          Caption="Password" Margin="10" Grid.RowSpan="2" MaxLength="26"></controlsSignIn:LabelAndPasswordControl>
 
         <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" Content="Sign in" Command="{Binding SignInCommand}"/>
         <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" Content="Go to sign up" Command="{Binding ToSignUpCommand}"/>

@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="Notes.Tools.Controls.LabelAndTextBoxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:Notes.Tools.Controls"
+             xmlns:local="clr-namespace:Notes.Tools.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="315" d:DesignWidth="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="300"/>
+        </Grid.RowDefinitions>
+        <Label Name="Label" Grid.Row="0" Height="25" FontSize="14"  
+               Content="{Binding Caption, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:LabelAndTextBoxControl}, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Name="TextBox" Grid.Row ="1" FontSize="14" Height="300" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"
+                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" SpellCheck.IsEnabled="True" MaxLength="{Binding MaxLength, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:LabelAndTextBoxControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding Text, RelativeSource={RelativeSource FindAncestor, AncestorType=controls:LabelAndTextBoxControl}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    </Grid>
+</UserControl>

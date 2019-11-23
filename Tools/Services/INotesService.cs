@@ -26,6 +26,15 @@ namespace Notes.Tools.Services
         CustomerDTO Login(string login, string password);
 
         /// <summary>
+        /// Check if login exists.
+        /// </summary>
+        /// <param name="login">Login to check.</param>
+        /// <returns>
+        /// True iff customer with such login exists in the system.
+        /// </returns>
+        bool LoginExists(string login);
+
+        /// <summary>
         /// Get a list of Notes (with only Guid and Title) for customer with specified Guid.
         /// </summary>
         /// <param name="customerGuid">Customer's guid.</param>

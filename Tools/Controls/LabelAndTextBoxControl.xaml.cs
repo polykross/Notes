@@ -22,8 +22,8 @@ namespace Notes.Tools.Controls
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(CaptionProperty, value); }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(CaptionProperty, value);
         }
 
         public static readonly DependencyProperty CaptionProperty = DependencyProperty.Register
@@ -36,8 +36,8 @@ namespace Notes.Tools.Controls
 
         public string Caption
         {
-            get { return (string)GetValue(CaptionProperty); }
-            set { SetValue(CaptionProperty, value); }
+            get => (string)GetValue(CaptionProperty);
+            set => SetValue(CaptionProperty, value);
         }
 
         public static readonly DependencyProperty MaxLengthProperty = DependencyProperty.Register
@@ -49,8 +49,8 @@ namespace Notes.Tools.Controls
         );
         public int MaxLength
         {
-            get { return (int)GetValue(MaxLengthProperty); }
-            set { SetValue(MaxLengthProperty, value); }
+            get => (int)GetValue(MaxLengthProperty);
+            set => SetValue(MaxLengthProperty, value);
         }
     }
 }

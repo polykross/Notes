@@ -137,7 +137,6 @@ namespace Notes.ViewModels
                 try
                 {
                     string encryptedPassword = EncryptionHelper.GenerateHash(_password, _login);
-                    Console.WriteLine($"encrypted password: {encryptedPassword}");
                     var user = new CustomerDTO(_login, encryptedPassword, _firstName, _lastName, _email);
                     user = StationManager.NotesService.Register(user);
                     StationManager.CurrentUser = user;

@@ -88,16 +88,29 @@ namespace Notes.ViewModels
             _note = note;
         }
 
+        /// <summary>
+        /// Navigate back to list of notes.
+        /// </summary>
+        /// <param name="obj"></param>
         private void GoBackImplementation(object obj)
         {
             NavigationManager.Instance.Navigate(new NotesView());
         }
 
+        /// <summary>
+        /// Returns whether refresh can execute. It can execute if the note is not new (it already exists in the system).
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>true if refresh can execute</returns>
         private bool CanRefreshExecute(object obj)
         {
             return !_newNote;
         }
 
+        /// <summary>
+        /// Refresh the page asyncronously and show loader.
+        /// </summary>
+        /// <param name="obj"></param>
         private async void RefreshImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();
@@ -116,17 +129,30 @@ namespace Notes.ViewModels
             LoaderManager.Instance.HideLoader();
         }
 
+        /// <summary>
+        /// Logout current user and navigate to sign in page.
+        /// </summary>
+        /// <param name="obj"></param>
         private void LogoutImplementation(object obj)
         {
             StationManager.Logout();
             NavigationManager.Instance.Navigate(new SignInView());
         }
 
+        /// <summary>
+        /// Returns whether save can execute. It can execute if all fields are not empty.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>true if save can execute</returns>
         private bool CanSaveExecute(object obj)
         {
             return !string.IsNullOrWhiteSpace(Note.Title) && !string.IsNullOrWhiteSpace(Note.Text);
         }
 
+        /// <summary>
+        /// Save the note asyncronously and show loader.
+        /// </summary>
+        /// <param name="obj"></param>
         private async void SaveImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();

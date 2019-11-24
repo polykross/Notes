@@ -114,7 +114,6 @@
     <Compile Include="Tools\PasswordBoxAssistant.cs" />
     <Compile Include="Tools\Services\DTOAdapter.cs" />
     <Compile Include="Tools\Services\NotesService.cs" />
-    <Compile Include="Tools\Services\StubNotesService.cs" />
     <Compile Include="Tools\Storage\ICurrentUserStorage.cs" />
     <Compile Include="Tools\Storage\SerializedCurrentUserStorage.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

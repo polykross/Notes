@@ -41,23 +41,23 @@ namespace Notes.ViewModels
         #region Commands
         public ICommand RefreshCommand =>
             _refreshCommand ?? (_refreshCommand =
-                new RelayCommand<object>(RefreshImplementation, CanRefreshExecute));
+                new RelayCommand<object>(RefreshImplementation));
 
         public ICommand LogoutCommand =>
             _logoutCommand ?? (_logoutCommand =
-                new RelayCommand<object>(LogoutImplementation, CanLogoutExecute));
+                new RelayCommand<object>(LogoutImplementation));
 
         public ICommand AddNoteCommand =>
             _addNoteCommand ?? (_addNoteCommand =
-                new RelayCommand<object>(AddNoteImplementation, CanAddNoteExecute));
+                new RelayCommand<object>(AddNoteImplementation));
 
         public ICommand ShowNoteCommand =>
             _showNoteCommand ?? (_showNoteCommand =
-                new RelayCommand<object>(ShowNoteImplementation, CanShowNoteExecute));
+                new RelayCommand<object>(ShowNoteImplementation));
 
         public ICommand DeleteNoteCommand =>
             _deleteNoteCommand ?? (_deleteNoteCommand =
-                new RelayCommand<object>(DeleteNoteImplementation, CanDeleteNoteExecute));
+                new RelayCommand<object>(DeleteNoteImplementation));
 
         #endregion
         #endregion
@@ -71,12 +71,11 @@ namespace Notes.ViewModels
                 _notes = new ObservableCollection<ShortNoteDTO>();
             }
         }
-
-        private bool CanRefreshExecute(object obj)
-        {
-            return true;
-        }
-
+        
+        /// <summary>
+        /// Refresh a list of notes asyncronously and show loader.
+        /// </summary>
+        /// <param name="obj"></param>
         private async void RefreshImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();
@@ -96,32 +95,29 @@ namespace Notes.ViewModels
             LoaderManager.Instance.HideLoader();
         }
 
-        private bool CanLogoutExecute(object obj)
-        {
-            return true;
-        }
-
+        /// <summary>
+        /// Logout user and navigate to sign in.
+        /// </summary>
+        /// <param name="obj"></param>
         private void LogoutImplementation(object obj)
         {
             StationManager.Logout();
             NavigationManager.Instance.Navigate(new SignInView());
         }
 
-        private bool CanAddNoteExecute(object obj)
-        {
-            return true;
-        }
-
+        /// <summary>
+        /// Navigate to empty note view.
+        /// </summary>
+        /// <param name="obj"></param>
         private void AddNoteImplementation(object obj)
         {
             NavigationManager.Instance.Navigate(new NoteView());
         }
 
-        private bool CanShowNoteExecute(object obj)
-        {
-            return true;
-        }
-
+        /// <summary>
+        /// Navigate to note if it exists. If note was deleted by other session, a message is shown.
+        /// </summary>
+        /// <param name="obj"></param>
         private async void ShowNoteImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();
@@ -148,11 +144,10 @@ namespace Notes.ViewModels
             }
         }
 
-        private bool CanDeleteNoteExecute(object obj)
-        {
-            return true;
-        }
-
+        /// <summary>
+        /// Delete note on server and in collection on client.
+        /// </summary>
+        /// <param name="obj"></param>
         private async void DeleteNoteImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();

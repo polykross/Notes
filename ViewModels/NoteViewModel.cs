@@ -67,7 +67,7 @@ namespace Notes.ViewModels
             get
             {
                 return _saveCommand ?? (_saveCommand =
-                           new RelayCommand<object>(SaveImplementation));
+                           new RelayCommand<object>(SaveImplementation, CanSaveExecute));
             }
         }
 
@@ -120,6 +120,11 @@ namespace Notes.ViewModels
         {
             StationManager.Logout();
             NavigationManager.Instance.Navigate(new SignInView());
+        }
+
+        private bool CanSaveExecute(object obj)
+        {
+            return !string.IsNullOrWhiteSpace(Note.Title) && !string.IsNullOrWhiteSpace(Note.Text);
         }
 
         private async void SaveImplementation(object obj)

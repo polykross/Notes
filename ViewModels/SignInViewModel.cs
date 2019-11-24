@@ -69,7 +69,7 @@ namespace Notes.ViewModels
         /// <returns>True if sign in commang can be executed.</returns>
         private bool CanSignInExecute(object obj)
         {
-            return !String.IsNullOrWhiteSpace(_login) && !String.IsNullOrWhiteSpace(_password);
+            return !string.IsNullOrWhiteSpace(_login) && !string.IsNullOrWhiteSpace(_password);
         }
 
         /// <summary>
@@ -85,10 +85,17 @@ namespace Notes.ViewModels
                 CustomerDTO currentUser;
                 try
                 {
+                    if (!StationManager.NotesService.LoginExists(_login))
+                    {
+                        MessageBox.Show("Login or password is incorrect.");
+                        return false;
+                    }
                     string encryptedPassword = EncryptionHelper.GenerateHash(_password, _login);
-                    Console.WriteLine($"login: {_login}");
-                    Console.WriteLine($"password: {encryptedPassword}");
                     currentUser = StationManager.NotesService.Login(_login, encryptedPassword);
+                    if (currentUser == null)
+                    {
+                        Console.WriteLine("user is null");
+                    }
                 }
                 catch (Exception ex)
                 {

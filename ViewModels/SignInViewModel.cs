@@ -86,6 +86,8 @@ namespace Notes.ViewModels
                 try
                 {
                     string encryptedPassword = EncryptionHelper.GenerateHash(_password, _login);
+                    Console.WriteLine($"login: {_login}");
+                    Console.WriteLine($"password: {encryptedPassword}");
                     currentUser = StationManager.NotesService.Login(_login, encryptedPassword);
                 }
                 catch (Exception ex)

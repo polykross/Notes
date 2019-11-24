@@ -31,10 +31,7 @@ namespace Notes.Tools.Managers
 
         internal static void CloseApp()
         {
-            if (CurrentUser != null)
-            {
-                _currentUserStorage.SaveCurrentUser(CurrentUser);
-            }
+            _currentUserStorage.SaveCurrentUser(CurrentUser);
             StopThreads?.Invoke();
             Environment.Exit(0);
         }

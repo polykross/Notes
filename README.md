@@ -1,4 +1,6 @@
 ﻿# Notes
+ 
+Звіт з ручного тестування знаходиться [тут](https://github.com/Bellkross/Notes/blob/master/ManualTesting.docx)
 
 Нотатки.
 

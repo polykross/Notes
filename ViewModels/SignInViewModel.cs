@@ -92,14 +92,10 @@ namespace Notes.ViewModels
                     }
                     string encryptedPassword = EncryptionHelper.GenerateHash(_password, _login);
                     currentUser = StationManager.NotesService.Login(_login, encryptedPassword);
-                    if (currentUser == null)
-                    {
-                        Console.WriteLine("user is null");
-                    }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}{ex.Message}");
+                    MessageBox.Show("Login or password is incorrect.");
                     return false;
                 }
                 if (currentUser == null)

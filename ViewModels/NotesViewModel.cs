@@ -127,16 +127,24 @@ namespace Notes.ViewModels
             LoaderManager.Instance.ShowLoader();
             NoteDTO note = await Task.Run(() =>
             {
-                return StationManager.NotesService.GetNote((Guid) obj);
+                try
+                {
+                    NoteDTO receivedNote = StationManager.NotesService.GetNote((Guid)obj);
+                    return receivedNote;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
             });
             LoaderManager.Instance.HideLoader();
-            if (note != null)
+            if (note == null)
             {
-                NavigationManager.Instance.Navigate(new NoteView(note));
+                MessageBox.Show($"Note does not exist (deleted by other session). You can refresh to see an updated list of notes.");
             }
             else
             {
-                MessageBox.Show($"Could not load note.");
+                NavigationManager.Instance.Navigate(new NoteView(note));
             }
         }
 

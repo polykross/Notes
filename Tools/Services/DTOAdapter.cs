@@ -4,6 +4,10 @@
     {
         public static NotesServiceImpl.CustomerDTO ToServiceDTO(Models.CustomerDTO customer)
         {
+            if (customer == null)
+            {
+                return null;
+            }
             return new NotesServiceImpl.CustomerDTO
             {
                 Guid = customer.Guid,
@@ -18,6 +22,10 @@
 
         public static NotesServiceImpl.NoteDTO ToServiceDTO(Models.NoteDTO note)
         {
+            if (note == null)
+            {
+                return null;
+            }
             return new NotesServiceImpl.NoteDTO
             {
                 Guid = note.Guid,
@@ -30,6 +38,10 @@
 
         public static NotesServiceImpl.ShortNoteDTO ToServiceDTO(Models.ShortNoteDTO note)
         {
+            if (note == null)
+            {
+                return null;
+            }
             return new NotesServiceImpl.ShortNoteDTO
             {
                 Guid = note.Guid,
@@ -39,6 +51,10 @@
 
         public static Models.CustomerDTO ToClientDTO(NotesServiceImpl.CustomerDTO customer)
         {
+            if (customer == null)
+            {
+                return null;
+            }
             return new Models.CustomerDTO(
                 guid: customer.Guid,
                 login: customer.Login,
@@ -52,6 +68,10 @@
 
         public static Models.NoteDTO ToClientDTO(NotesServiceImpl.NoteDTO note)
         {
+            if (note == null)
+            {
+                return null;
+            }
             return new Models.NoteDTO(
                 guid: note.Guid,
                 title: note.Title,
@@ -63,6 +83,10 @@
 
         public static Models.ShortNoteDTO ToClientDTO(NotesServiceImpl.ShortNoteDTO note)
         {
+            if (note == null)
+            {
+                return null;
+            }
             return new Models.ShortNoteDTO(
                 guid: note.Guid,
                 title: note.Title

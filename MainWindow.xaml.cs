@@ -29,7 +29,7 @@ namespace Notes
 
         private void InitializeApplication()
         {
-            StationManager.Initialize(new StubNotesService(), new SerializedCurrentUserStorage());
+            StationManager.Initialize(new NotesService(), new SerializedCurrentUserStorage());
             NavigationManager.Instance.Initialize(new NavigationModel(this));
             if (StationManager.CurrentUser != null)
             {

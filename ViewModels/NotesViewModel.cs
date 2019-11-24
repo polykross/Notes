@@ -114,7 +114,6 @@ namespace Notes.ViewModels
 
         private void AddNoteImplementation(object obj)
         {
-            System.Console.WriteLine("Navigating to add note");
             NavigationManager.Instance.Navigate(new NoteView());
         }
 
@@ -125,7 +124,6 @@ namespace Notes.ViewModels
 
         private async void ShowNoteImplementation(object obj)
         {
-            System.Console.WriteLine($"Loading note with guid {obj}");
             LoaderManager.Instance.ShowLoader();
             NoteDTO note = await Task.Run(() =>
             {
@@ -134,7 +132,6 @@ namespace Notes.ViewModels
             LoaderManager.Instance.HideLoader();
             if (note != null)
             {
-                System.Console.WriteLine("Loaded note");
                 NavigationManager.Instance.Navigate(new NoteView(note));
             }
             else
@@ -150,14 +147,12 @@ namespace Notes.ViewModels
 
         private async void DeleteNoteImplementation(object obj)
         {
-            System.Console.WriteLine($"Deleting note with guid {obj}");
             LoaderManager.Instance.ShowLoader();
             var result = await Task.Run(() => StationManager.NotesService.DeleteNote((Guid)obj));
             LoaderManager.Instance.HideLoader();
             if (result)
             {
                 Notes.Remove(Notes.First(note => note.Guid == (Guid)obj));
-                System.Console.WriteLine("Deleted note");
             }
         }
     }

@@ -92,6 +92,11 @@ namespace Notes.ViewModels
 
         #endregion
         #endregion
+        /// <summary>
+        /// Returns whether sign up can execute. It can execute if all fields are filled.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         private bool CanSignUpExecute(object obj)
         {
             return !string.IsNullOrEmpty(_login) &&
@@ -101,6 +106,11 @@ namespace Notes.ViewModels
                    !string.IsNullOrEmpty(_email);
         }
 
+        /// <summary>
+        /// Sign up user asyncronously. While the sign up is executing, the loader is shown.
+        /// If user provided invalid email or login that already exists, the appropriate message is shown.
+        /// </summary>
+        /// <param name="obj"></param>
         private async void SignUpImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();
@@ -144,6 +154,10 @@ namespace Notes.ViewModels
             }
         }
 
+        /// <summary>
+        /// Navigate to sign in page.
+        /// </summary>
+        /// <param name="obj"></param>
         private void ToSignInImplementation(object obj)
         {
             NavigationManager.Instance.Navigate(new SignInView());

@@ -62,11 +62,21 @@ namespace Notes.ViewModels
 
         #endregion
         #endregion
+        /// <summary>
+        /// Whether sign in command can be executed. It can be executed iff Login and Password are filled.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True if sign in commang can be executed.</returns>
         private bool CanSignInExecute(object obj)
         {
             return !String.IsNullOrWhiteSpace(_login) && !String.IsNullOrWhiteSpace(_password);
         }
 
+        /// <summary>
+        /// Sign user in asyncronously. While the sign in is executing, the loader is shown.
+        /// If login or password is incorrect, a message for the user is shown.
+        /// </summary>
+        /// <param name="obj"></param>
         private async void SignInImplementation(object obj)
         {
             LoaderManager.Instance.ShowLoader();
@@ -80,7 +90,7 @@ namespace Notes.ViewModels
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Sign In failed fo user {_login}. Reason:{Environment.NewLine}{ex.Message}");
+                    MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}{ex.Message}");
                     return false;
                 }
                 if (currentUser == null)
@@ -98,6 +108,10 @@ namespace Notes.ViewModels
             }
         }
 
+        /// <summary>
+        /// Navigate to sign up page.
+        /// </summary>
+        /// <param name="obj"></param>
         private void ToSignUpImplementation(object obj)
         {
             NavigationManager.Instance.Navigate(new SignUpView());

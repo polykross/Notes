@@ -40,7 +40,7 @@ namespace Notes.ViewModels
             get
             {
                 return _goBackCommand ?? (_goBackCommand =
-                           new RelayCommand<object>(GoBackImplementation, CanGoBackExecute));
+                           new RelayCommand<object>(GoBackImplementation));
             }
         }
 
@@ -58,7 +58,7 @@ namespace Notes.ViewModels
             get
             {
                 return _logoutCommand ?? (_logoutCommand =
-                           new RelayCommand<object>(LogoutImplementation, CanLogoutExecute));
+                           new RelayCommand<object>(LogoutImplementation));
             }
         }
 
@@ -67,7 +67,7 @@ namespace Notes.ViewModels
             get
             {
                 return _saveCommand ?? (_saveCommand =
-                           new RelayCommand<object>(SaveImplementation, CanSaveExecute));
+                           new RelayCommand<object>(SaveImplementation));
             }
         }
 
@@ -86,11 +86,6 @@ namespace Notes.ViewModels
         {
             _newNote = false;
             _note = note;
-        }
-
-        private bool CanGoBackExecute(object obj)
-        {
-            return true;
         }
 
         private void GoBackImplementation(object obj)
@@ -121,20 +116,10 @@ namespace Notes.ViewModels
             LoaderManager.Instance.HideLoader();
         }
 
-        private bool CanLogoutExecute(object obj)
-        {
-            return true;
-        }
-
         private void LogoutImplementation(object obj)
         {
             StationManager.Logout();
             NavigationManager.Instance.Navigate(new SignInView());
-        }
-
-        private bool CanSaveExecute(object obj)
-        {
-            return true;
         }
 
         private async void SaveImplementation(object obj)

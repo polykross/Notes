@@ -19,6 +19,7 @@ namespace Notes.Tools.Managers
                 var file = new FileInfo(filePath);
                 if (file.CreateFolderAndCheckFileExistance())
                 {
+                    // if file exists, delete it
                     file.Delete();
                 }
                 var formatter = new BinaryFormatter();
@@ -34,7 +35,7 @@ namespace Notes.Tools.Managers
         }
 
         /// <summary>
-        /// Deserialize object from file.
+        /// Deserialize object from file and return it. If file is empty, return null.
         /// </summary>
         /// <typeparam name="TObject">type of object to deserialize</typeparam>
         /// <param name="filePath"></param>
@@ -48,6 +49,7 @@ namespace Notes.Tools.Managers
                 var formatter = new BinaryFormatter();
                 using (var stream = new FileStream(filePath, FileMode.Open))
                 {
+                    // if file is empty, return null
                     return stream.Length == 0 ? null : (TObject)formatter.Deserialize(stream);
                 }
             }

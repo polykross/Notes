@@ -7,6 +7,9 @@ namespace Notes.Tools.Managers
         private static readonly object Locker = new object();
         private static LoaderManager _instance;
 
+        /// <summary>
+        /// Get a single instance of Loader Manager.
+        /// </summary>
         internal static LoaderManager Instance
         {
             get

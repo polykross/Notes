@@ -7,6 +7,9 @@ namespace Notes.Tools.Managers
         private static readonly object Locker = new object();
         private static NavigationManager _instance;
 
+        /// <summary>
+        /// Get a single instance of Notification Manager.
+        /// </summary>
         internal static NavigationManager Instance
         {
             get
@@ -31,6 +34,10 @@ namespace Notes.Tools.Managers
             _navigationModel = navigationModel;
         }
 
+        /// <summary>
+        /// Navigate to a specific view.
+        /// </summary>
+        /// <param name="view">A view to navigate to.</param>
         internal void Navigate(INavigatable view)
         {
             _navigationModel.Navigate(view);

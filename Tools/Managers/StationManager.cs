@@ -7,8 +7,6 @@ namespace Notes.Tools.Managers
 {
     internal static class StationManager
     {
-        public static event Action StopThreads;
-
         private static INotesService _notesService;
 
         private static ICurrentUserStorage _currentUserStorage;
@@ -21,6 +19,7 @@ namespace Notes.Tools.Managers
         {
             _notesService = notesService;
             _currentUserStorage = currentUserStorage;
+            // get logged in user
             CurrentUser = _currentUserStorage.GetCurrentUser();
         }
 
@@ -32,7 +31,6 @@ namespace Notes.Tools.Managers
         internal static void CloseApp()
         {
             _currentUserStorage.SaveCurrentUser(CurrentUser);
-            StopThreads?.Invoke();
             Environment.Exit(0);
         }
     }
